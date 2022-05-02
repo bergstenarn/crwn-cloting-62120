@@ -24,6 +24,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
+    resetFormFields();
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
   };
@@ -38,7 +39,15 @@ const SignInForm = () => {
       );
       console.log(response);
       resetFormFields();
-    } catch (error) {}
+    } catch (error) {
+      if (
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/user-not-found"
+      ) {
+        alert("Incorrect credentials. Please try again.");
+      }
+      console.log(error);
+    }
   };
 
   const handleChange = (event) => {
@@ -71,7 +80,12 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button buttonType={"google"} onClick={signInWithGoogle}>
+          <p style={{ textAlign: "center", marginTop: "30px" }}>or</p>
+          <Button
+            type="button"
+            buttonType={"google"}
+            onClick={signInWithGoogle}
+          >
             Google Sign In
           </Button>
         </div>
