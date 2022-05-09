@@ -32,6 +32,7 @@ const clearCartItem = (cartItems, cartItemToClear) => {
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
+  toggleCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
   removeItemFromCart: () => {},
@@ -74,9 +75,14 @@ export const CartProvider = ({ children }) => {
     setCartItems(clearCartItem(cartItems, cartItemToClear));
   };
 
+  const toggleCartOpen = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   const value = {
     isCartOpen,
     setIsCartOpen,
+    toggleCartOpen,
     addItemToCart,
     removeItemFromCart,
     clearItemFromCart,
