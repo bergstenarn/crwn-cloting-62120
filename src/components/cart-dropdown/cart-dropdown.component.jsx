@@ -27,7 +27,7 @@ const CartDropdown = () => {
           <EmptyMessage>Your cart is empty</EmptyMessage>
         )}
       </CartItems>
-      <Button style={{ "margin-top": "auto" }} onClick={goToCheckoutHandler}>
+      <Button style={{ marginTop: "auto" }} onClick={goToCheckoutHandler}>
         CHECKOUT
       </Button>
     </CartDropdownContainer>
