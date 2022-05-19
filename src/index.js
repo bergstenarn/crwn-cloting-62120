@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import "./index.scss";
@@ -10,8 +10,9 @@ import { CartProvider } from "./contexts/cart.context";
 import { store } from "./store/store";
 import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+const rootElement = document.getElementById("root");
+
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -24,7 +25,8 @@ root.render(
         </UserProvider>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  rootElement
 );
 
 // If you want to start measuring performance in your app, pass a function
