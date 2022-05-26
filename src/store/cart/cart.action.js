@@ -48,6 +48,6 @@ export const clearItemFromCart = (cartItems, cartItemToClear) => {
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
-const toggleCartOpen = () => {
-  setIsCartOpen(!isCartOpen);
-};
+// const toggleCartOpen = () => {
+//   setIsCartOpen(!isCartOpen);
+// };
