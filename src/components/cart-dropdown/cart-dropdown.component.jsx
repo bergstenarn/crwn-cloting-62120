@@ -14,7 +14,6 @@ const CartDropdown = () => {
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
-    // toggleCartOpen();
     navigate("/checkout");
   };
 
