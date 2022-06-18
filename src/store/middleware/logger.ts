@@ -1,4 +1,8 @@
-const logger = (store) => (next) => (action) => {
+import { Middleware } from "redux";
+
+import { RootState } from "../store";
+
+const logger: Middleware<{}, RootState> = (store) => (next) => (action) => {
   if (!action.type) {
     return next(action);
   }
